@@ -1,0 +1,49 @@
+.container {
+    padding: 0 15px;
+}
+
+h1 {
+    margin: 10px 0;
+}
+
+h5 {
+    margin: 0;
+}
+
+.shop-container,
+.product-container {
+    display: flex;
+}
+
+.product-container {
+    width: 85%;
+    height: 50%;
+    background-color: white;
+}
+
+.product {
+    border: 1px solid #ececec;
+    padding: 10px;
+}
+
+.cart-container {
+    margin: 0;
+    width: 15%;
+    height: 50vh;
+    background-color: #f5f5f5;
+    /* border-left: 3px solid #eaeaea; */
+}
+
+.cart-history {
+    text-align: center;
+}
+
+.cart-summary {
+    margin: 20px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    position: sticky;
+}

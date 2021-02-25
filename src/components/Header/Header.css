@@ -1,0 +1,27 @@
+.header img {
+    width: 200px;
+    cursor: pointer;
+}
+
+.header {
+    text-align: center;
+}
+
+nav {
+    background-color: #232f3e;
+    line-height: 40px;
+    text-align: left;
+    font-size: 16px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0px 30px;
+    padding: 5px;
+}
+
+nav a:hover {
+    border: 1px solid white;
+    border-radius: 5px;
+}
