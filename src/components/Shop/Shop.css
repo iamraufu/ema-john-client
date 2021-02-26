@@ -6,7 +6,7 @@ h1 {
     margin-top: auto;
 }
 
-p {
+.container>p {
     text-align: left;
 }
 
