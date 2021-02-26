@@ -6,6 +6,10 @@ h1 {
     margin-top: auto;
 }
 
+p {
+    text-align: left;
+}
+
 .shop-container,
 .product-container {
     display: flex;
