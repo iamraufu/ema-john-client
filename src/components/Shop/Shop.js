@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import fakeData from '../../fakeData';
+import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css'
 
@@ -9,10 +10,10 @@ const Shop = () => {
 
       const [cart, setCart] = useState([]);
 
-      const handleAddProduct= (product)=>{
-            const newCart = [...cart,product]
+      const handleAddProduct = (product) => {
+            const newCart = [...cart, product]
             setCart(newCart)
-            console.log(setProducts,product)
+            console.log(setProducts, product)
 
       }
 
@@ -27,24 +28,7 @@ const Shop = () => {
                               }
                         </div>
                         <div className="cart-container">
-                              <div className="cart-history">
-                                    <h3>Order Summary</h3>
-                                    <p>Items ordered: {cart.length}</p>
-                              </div>
-
-                              <div className="cart-summary">
-                                    <p>Items: $0
-                              <br />
-                              Shipping & Handling: $0
-                              <br />
-                              Total before tax:	$0
-                              <br />
-                              Estimated Tax: $0
-                              <br />
-                              Order Total: $0
-                              </p>
-                              <button>Review Your Order</button>
-                              </div>   
+                              <Cart cart={cart}></Cart>
                         </div>
                   </div>
             </div>
@@ -56,7 +40,7 @@ const Shop = () => {
 // function Product(props) {
 //       return (
 //             <div className='product'>
-                  
+
 //                   <img src={props.product.img} alt="logo" />
 //                   <h2 style={{ color: "#cc1c39" }}>${props.product.price}</h2>
 //                   <h6>By {props.product.seller}</h6>

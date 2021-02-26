@@ -30,10 +30,6 @@ h1 {
     text-align: center;
 }
 
-.cart-summary {
-    margin: 20px;
-}
-
 .cart-summary>button {
     margin-top: auto;
     width: 100%;
