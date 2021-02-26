@@ -1,0 +1,13 @@
+.navFooter {
+    background-color: #37475a;
+    text-align: center;
+    color: white;
+    height: 20px;
+    padding: 10px;
+    font-weight: 700;
+}
+
+.navFooter:hover {
+    cursor: pointer;
+    background-color: #485769;
+}
