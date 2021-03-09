@@ -8,8 +8,7 @@ import Inventory from './components/Inventory/Inventory';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Review from './components/Review/Review';
 import NotFound from './components/NotFound/NotFound';
