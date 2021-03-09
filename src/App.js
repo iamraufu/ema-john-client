@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import Review from './components/Review/Review';
 import NotFound from './components/NotFound/NotFound';
+import ProductDetail from './components/ProductDetail/ProductDetail';
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
           <Route exact path="/">
             <Shop></Shop>
             <Footer></Footer>
+          </Route>
+          <Route path="/product/:productKey">
+            <ProductDetail></ProductDetail>
           </Route>
           <Route path="*">
             <NotFound></NotFound>
