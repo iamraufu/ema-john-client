@@ -15,7 +15,7 @@ function Product(props) {
                   <Link to={"/product/"+key}>{name}</Link>
                   {/* <a href="https://github.com/iamraufu">{name}</a> */}
                   <h4>Only {stock} pieces left in stock</h4>
-                  <button onClick={()=>props.handleAddProduct(props.product)}><FontAwesomeIcon icon={faShoppingCart} /> Add To Cart</button>
+                  { props.showAddToCard && <button onClick={()=>props.handleAddProduct(props.product)}><FontAwesomeIcon icon={faShoppingCart} /> Add To Cart</button>}
             </div>
 
       )
