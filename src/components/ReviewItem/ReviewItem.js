@@ -6,7 +6,7 @@ const ReviewItem = (props) => {
       return (
             <div className='product'>
                   <img src={img} alt="logo" />
-                  <h2>${price}</h2>
+                  <h2><small>$ {price}</small></h2>
                   <h6>By <small>{seller}</small></h6>
                   <h4>{name}</h4>
                   <h5>Quantity: {quantity}</h5>

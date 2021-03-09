@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Cart = (props) => {
       const cart = props.cart
-      const total = Math.round((cart.reduce((total, pd) => total + pd.price, 0))*100)/100;
+      const total = Math.round((cart.reduce((total, pd) => total + pd.price*pd.quantity, 0))*100)/100;
       const tax =  Math.round((total/10)*100)/100;
 
       let shipping = 0;
