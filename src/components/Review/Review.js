@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import fakeData from '../../fakeData';
-import { getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
+import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
+import funnyImage from '../../images/giphy.gif';
 
 const Review = () => {
       const [cart, setCart] = useState([]);
+      const [orderPlaced, setOrderPlaced]= useState(false)
+      const handlePlaceOrder=()=>{
+            setCart([]);
+            setOrderPlaced(true);
+            processOrder();
+      }
+
       const removeProduct = (productKey) => {
             const newCart = cart.filter(pd => pd.key !== productKey)
             setCart(newCart);
@@ -22,6 +30,8 @@ const Review = () => {
             });
             setCart(cartProducts);
       }, [])
+
+      let gratitude = <img src={funnyImage} alt=""/>
       return (
             <div>
                   <h3>Cart Items: {cart.length}</h3>
@@ -30,9 +40,14 @@ const Review = () => {
                         {
                               cart.map(pd => <ReviewItem product={pd} key={pd.key} removeProduct={removeProduct}></ReviewItem>)
                         }
+                        {
+                              orderPlaced && gratitude
+                        }
                   </div>
                   <div className="cart-container">
-                        <Cart cart={cart}></Cart>
+                        <Cart cart={cart}>
+                              <button onClick={handlePlaceOrder}>Place Order</button>
+                        </Cart>
                   </div>
                   </div>
                   
