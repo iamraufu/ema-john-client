@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import fakeData from '../../fakeData';
-import { addToDatabaseCart } from '../../utilities/databaseManager';
+import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css'
@@ -9,6 +9,18 @@ const Shop = () => {
       const f10 = fakeData.slice(0, 80);
       const [products, setProducts] = useState(f10);
       const [cart, setCart] = useState([]);
+
+      useEffect(() => {
+            // Cart data 
+            const savedCart = getDatabaseCart();
+            const productKeys = Object.keys(savedCart)
+            const previousCart = productKeys.map(existingKey => {
+                  const product = fakeData.find(pd => pd.key === existingKey);
+                  product.quantity = savedCart[existingKey];
+                  return product;
+            });
+            setCart(previousCart);
+      }, [])
 
       const handleAddProduct = (product) => {
             const toBeAddedKey = product.key
@@ -19,7 +31,7 @@ const Shop = () => {
                   count = sameProduct.quantity + 1;
                   sameProduct.quantity = count;
                   const others = cart.filter(pd => pd.key !== toBeAddedKey)
-                  newCart= [...others, sameProduct]
+                  newCart = [...others, sameProduct]
             }
             else {
                   product.quantity = 1;
@@ -48,27 +60,4 @@ const Shop = () => {
       );
 };
 
-// Added in External Product Component
-// function Product(props) {
-//       return (
-//             <div className='product'>
-
-//                   <img src={props.product.img} alt="logo" />
-//                   <h2 style={{ color: "#cc1c39" }}>${props.product.price}</h2>
-//                   <h6>By {props.product.seller}</h6>
-//                   <a href="">{props.product.name}</a>
-//                   <h4>Only {props.product.stock} pieces left</h4>
-//                   <button>Add To Cart</button>
-//             </div>
-
-//       )
-// }
-
-// const DisplayData(props){
-//       return (
-//             <div>
-//                   <img src={props.img} alt="" />
-//             </div>
-//       )
-// }
 export default Shop;
