@@ -12,14 +12,14 @@ const Shop = () => {
 
       const handleAddProduct = (product) => {
             const toBeAddedKey = product.key
-            const sameProduct = cart.find(pd => pd.key === product.key);
+            const sameProduct = cart.find(pd => pd.key === toBeAddedKey);
             let count = 1;
             let newCart;
             if (sameProduct) {
-                  count = sameProduct.quantity++;
-                  sameProduct.quantity += 1;
+                  count = sameProduct.quantity + 1;
+                  sameProduct.quantity = count;
                   const others = cart.filter(pd => pd.key !== toBeAddedKey)
-                  newCart(...others, sameProduct)
+                  newCart= [...others, sameProduct]
             }
             else {
                   product.quantity = 1;
