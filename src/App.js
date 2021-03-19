@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { createContext } from 'react'
 import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Shop from './components/Shop/Shop';
 import Inventory from './components/Inventory/Inventory';
+import Shipment from './components/Shipment/Shipment';
+import Login from './components/Login/Login';
 
 import {
   BrowserRouter as Router,
@@ -14,6 +16,8 @@ import Review from './components/Review/Review';
 import NotFound from './components/NotFound/NotFound';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 
+export const UserContext = createContext();
+
 function App() {
   return (
     <div>
@@ -21,24 +25,30 @@ function App() {
       <Router>
         <Switch>
           <Route path="/shop">
-            <Shop></Shop>
-            <Footer></Footer>
+            <Shop />
+            <Footer />
           </Route>
           <Route path="/review">
-            <Review></Review>
+            <Review />
           </Route>
           <Route path="/inventory">
-            <Inventory></Inventory>
+            <Inventory />
+          </Route>
+          <Route path="/shipment">
+            <Shipment />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route exact path="/">
-            <Shop></Shop>
-            <Footer></Footer>
+            <Shop />
+            <Footer />
           </Route>
           <Route path="/product/:productKey">
-            <ProductDetail></ProductDetail>
+            <ProductDetail />
           </Route>
           <Route path="*">
-            <NotFound></NotFound>
+            <NotFound />
           </Route>
         </Switch>
       </Router>
