@@ -14,7 +14,8 @@ nav {
     font-size: 16px;
 }
 
-nav a {
+nav a,
+.signout-btn {
     text-decoration: none;
     color: white;
     margin: 0px 30px;
@@ -25,4 +26,10 @@ nav a:hover {
     border: 1px solid white;
     border-radius: 5px;
     text-decoration: none;
+}
+
+.signout-btn,
+.signout-btn:hover {
+    width: 10%;
+    background-color: darkred;
 }
