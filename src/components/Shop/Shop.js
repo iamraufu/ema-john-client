@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom';
 
 const Shop = () => {
       const f10 = fakeData.slice(0, 80);
+      // eslint-disable-next-line
       const [products, setProducts] = useState(f10);
       const [cart, setCart] = useState([]);
-
       useEffect(() => {
             // Cart data 
             const savedCart = getDatabaseCart();

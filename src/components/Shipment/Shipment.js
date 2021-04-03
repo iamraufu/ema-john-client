@@ -8,6 +8,8 @@ const Shipment = () => {
       const onSubmit = data => {
             console.log(data)
       };
+
+      // eslint-disable-next-line
     const [loggedInUser,setLoggedInUser] = useContext(UserContext);
       console.log(watch("example")); 
       return (

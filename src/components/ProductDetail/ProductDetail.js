@@ -5,6 +5,7 @@ import Product from '../Product/Product';
 
 const ProductDetail = () => {
       const {productKey} = useParams()
+      // eslint-disable-next-line
       const [loading,setLoading] = useState(true)
       const product = fakeData.find(pd=>pd.key === productKey);
 
@@ -18,8 +19,7 @@ const ProductDetail = () => {
 
       return (
             <div>
-                  {loading? <p>Loading...</p>:
-                  <Product showAddToCard={false} product={product}></Product>}
+                  <Product showAddToCard={false} product={product}></Product>
             </div>
       );
 };

@@ -19,12 +19,11 @@ function Login() {
     error: '',
     success: false
   })
-
+// eslint-disable-next-line
   const [loggedInUser, setLoggedInUser] = useContext(UserContext)
   const history = useHistory();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
-
   const googleProvider = new firebase.auth.GoogleAuthProvider();
   const facebookProvider = new firebase.auth.FacebookAuthProvider();
   const handleSignIn = () => {

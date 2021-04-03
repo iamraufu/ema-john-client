@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import fakeData from '../../fakeData';
-import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../utilities/databaseManager';
+import { getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import funnyImage from '../../images/giphy.gif';
@@ -8,6 +8,7 @@ import { useHistory } from 'react-router';
 
 const Review = () => {
       const [cart, setCart] = useState([]);
+      // eslint-disable-next-line
       const [orderPlaced, setOrderPlaced]= useState(false)
       const history = useHistory()
       const handleProceedCheckout=()=>{
