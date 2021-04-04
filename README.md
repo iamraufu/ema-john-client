@@ -1,2 +1,3 @@
 # ema-john-simple live website link
-https://emmaa-john.netlify.app/
+Netlify: https://emmaa-john.netlify.app/
+Firebase: https://emmaa-john.web.app/
