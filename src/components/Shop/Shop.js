@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import fakeData from '../../fakeData';
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
@@ -7,21 +6,31 @@ import './Shop.css'
 import { Link } from 'react-router-dom';
 
 const Shop = () => {
-      const f10 = fakeData.slice(0, 80);
+
       // eslint-disable-next-line
-      const [products, setProducts] = useState(f10);
+      const [products, setProducts] = useState([]);
       const [cart, setCart] = useState([]);
+
+      useEffect(() => {
+            fetch('http://localhost:5000/products')
+                  .then((response) => response.json())
+                  .then(data => setProducts(data))
+      }, [])
+
       useEffect(() => {
             // Cart data 
             const savedCart = getDatabaseCart();
             const productKeys = Object.keys(savedCart)
-            const previousCart = productKeys.map(existingKey => {
-                  const product = fakeData.find(pd => pd.key === existingKey);
-                  product.quantity = savedCart[existingKey];
-                  return product;
-            });
-            setCart(previousCart);
-      }, [])
+            if (products.length) {
+                  const previousCart = productKeys.map(existingKey => {
+                        const product = products.find(pd => pd.key === existingKey);
+                        product.quantity = savedCart[existingKey];
+                        return product;
+                  });
+                  setCart(previousCart);
+            }
+
+      }, [products])
 
       const handleAddProduct = (product) => {
             const toBeAddedKey = product.key
@@ -49,7 +58,7 @@ const Shop = () => {
                   <div className='shop-container'>
                         <div className="product-container">
                               {
-                                    products.length=== 0 && <p>Loading...</p>
+                                    products.length === 0 && <p>Loading...</p>
                               }
                               {
                                     products.map(pd => <Product showAddToCard={true} handleAddProduct={handleAddProduct} product={pd} key={pd.key}></Product>)
