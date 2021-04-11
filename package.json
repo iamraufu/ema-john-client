@@ -6,6 +6,8 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.34",
         "@fortawesome/free-solid-svg-icons": "^5.15.2",
         "@fortawesome/react-fontawesome": "^0.1.14",
+        "@stripe/react-stripe-js": "^1.4.0",
+        "@stripe/stripe-js": "^1.13.2",
         "@testing-library/jest-dom": "^5.11.9",
         "@testing-library/react": "^11.2.5",
         "@testing-library/user-event": "^12.7.3",
@@ -13,6 +15,7 @@
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-hook-form": "^6.15.5",
+        "react-native-responsive-fontsize": "^0.5.0",
         "react-router-dom": "^5.2.0",
         "react-scripts": "4.0.3",
         "web-vitals": "^1.1.0"

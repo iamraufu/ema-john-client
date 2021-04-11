@@ -17,11 +17,9 @@ const ProductDetail = () => {
         }, [productKey])
         // const product = fakeData.find(pd=>pd.key === productKey);
 
-    return ( <
-        div >
-        <
-        Product showAddToCard = { false }
-        product = { product } > < /Product> </div >
+    return ( 
+        <div >
+        <Product showAddToCard = { false } product = { product }> </Product> </div>
     );
 };
 
