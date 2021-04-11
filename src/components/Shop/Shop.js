@@ -10,12 +10,13 @@ const Shop = () => {
       // eslint-disable-next-line
       const [products, setProducts] = useState([]);
       const [cart, setCart] = useState([]);
+      const [search, setSearch] = useState('');
 
       useEffect(() => {
-            fetch('https://emaajohn.herokuapp.com/products')
+            fetch('https://emaajohn.herokuapp.com/products?search=' + search)
                   .then((response) => response.json())
                   .then(data => setProducts(data))
-      }, [])
+      }, [search])
 
       useEffect(() => {
             // Cart data 
@@ -31,6 +32,10 @@ const Shop = () => {
               .then(res => res.json())
               .then(data => setCart(data))
       }, [])
+
+      const handleSearch = event =>{
+            setSearch(event.target.value);
+      }
 
       const handleAddProduct = (product) => {
             const toBeAddedKey = product.key
@@ -56,6 +61,8 @@ const Shop = () => {
                   <h1>Deals and Promotions</h1>
                   <p>Shop Today’s Deals, Lightning Deals, and limited-time discounts</p>
                   <div className='shop-container'>
+                        <input style={{width:'94%',paddingRight:'2%'}} onBlur={handleSearch} type="text" name="search" placeholder="search"/>
+                        <input type="submit" value="submit"/>
                         <div className="product-container">
                               {
                                     products.length === 0 && <p>Loading...</p>
