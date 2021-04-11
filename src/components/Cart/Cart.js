@@ -3,7 +3,13 @@ import './Cart.css'
 
 const Cart = (props) => {
       const cart = props.cart
-      const total = Math.round((cart.reduce((total, pd) => total + pd.price*pd.quantity || 0, 0))*100)/100;
+      // let total = Math.round((cart.reduce((total, pd) => total + pd.price*pd.quantity || 0, 0))*100)/100;
+      let total = 0;
+      for(let i = 0; i< cart.length; i++){
+            const product = cart[i];
+            console.log(product.price, product.quantity)
+            total = total + product.price * product.quantity || 1;
+        }
       const tax =  Math.round((total/10)*100)/100;
       let shipping = 0;
       if (total > 200) {
