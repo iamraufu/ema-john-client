@@ -32,9 +32,6 @@ Heroku(https://emaajohn.herokuapp.com/)
 
 ## 🌐 Live  Website Link
 
-https://serviceboybd.web.app/ 
-
-
-# EmaJohn Live Website Link
  Netlify: https://emmaajohn.netlify.app/
+ <br>
  Firebase: https://emmaa-john.web.app/
